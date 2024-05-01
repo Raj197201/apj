@@ -1,0 +1,20 @@
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class JavaApplication6 {
+
+    public static void main(String[] args) {
+        try {
+            // Get and print InetAddress of Local Host
+            InetAddress localHost = InetAddress.getLocalHost();
+            System.out.println("InetAddress of Local Host: " + localHost);
+
+            // To get and print InetAddress of Named Host
+            String hostName = "www.amezon.com"; // Replace with the desired host name
+            InetAddress namedHost = InetAddress.getByName(hostName);
+            System.out.println("InetAddress of " + hostName + ": " + namedHost);
+        } catch (UnknownHostException e) {
+            System.out.println("Error occurred: " + e.getMessage());
+        }
+    }
+}
