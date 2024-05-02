@@ -1,0 +1,51 @@
+ package AJP_2024.Unit5;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+
+
+public class Insert_data {
+
+	Insert_data()
+	{
+		
+			try {
+				//1) Register
+				Class.forName("com.mysql.jdbc.Driver");
+				
+				//2) Create a connection
+				Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/ajp2024","root","");
+				
+				Statement stmt= con.createStatement();
+				
+				String sql="insert into users values(102,'Lmn','lmn@gmail.com','India','lmn123'),"
+						+ "(103,'pqr','pqr@gmail.com','India','pqr123'),"
+						+ "(104,'abc','abc@gmail.com','India','abc123'),"
+						+ "(105,'rst','rst@gmail.com','India','rst123');";
+				
+				int i= stmt.executeUpdate(sql);
+				
+				if(i>-1)
+				{
+					System.out.println("Record inserted..");
+				}
+				
+				con.close();
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			}
+			
+			
+			
+	}
+	
+	public static void main(String args[])
+	{
+		new Insert_data();
+	}
+	
+}
